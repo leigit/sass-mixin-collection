@@ -1,9 +1,13 @@
-/// Text overflow
+/// Text Truncate
 ///
 /// Requires inline-block or block for proper styling
+/// @example
+/// .element {
+///   @include text-truncate();
+/// }
 /// @group Typography
 
-@mixin text-overflow() {
+@mixin text-truncate() {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
