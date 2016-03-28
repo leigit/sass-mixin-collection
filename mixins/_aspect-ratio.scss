@@ -1,0 +1,40 @@
+/// Aspect Ratio
+/// @usage
+/// .sixteen-nine {
+///  include aspect-ratio(16, 9, child-div-name )
+/// }
+/// @result
+/// .sixteen-nine {
+///   position: relative;
+/// }
+/// .sixteen-nine:before {
+///   display: block;
+///   content: "";
+///   width: 100%;
+///   padding-top: 56.25%;
+/// }
+/// .sixteen-nine > .child-div-name {
+///   position: absolute;
+///   top: 0;
+///   left: 0;
+///   right: 0;
+///   bottom: 0;
+/// }
+/// @link https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+
+@mixin aspect-ratio($width, $height, $child-div) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .$child-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
